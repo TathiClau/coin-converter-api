@@ -1,5 +1,6 @@
 package com.api.CoinConverter.controller
 
+import com.api.CoinConverter.domain.AddCoinConversion
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.util.*
