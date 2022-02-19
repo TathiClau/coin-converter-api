@@ -18,14 +18,14 @@ class CoinConverterController (val coinConverterService: CoinConverterService,
 
     //Endpoint that list all transactions
     @GetMapping(value = ["/transactions"])
-    fun findAll(): Unit {
-        return
+    fun findAll(): List<Transaction> {
+        return transactionRepository.findAll()
     }
 
     //Endpoint that list a transaction by Id
     @GetMapping(value = ["/transactionsById"])
-    fun findById(@RequestParam("id") id: UUID): Unit {
-        return
+    fun findById(@RequestParam("id") id: UUID): Optional<Transaction> {
+        return transactionRepository.findById(id)
     }
 
     //Endpoint for post on the database the transaction that has being made and return the coin conversion

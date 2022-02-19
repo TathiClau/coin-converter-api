@@ -7,13 +7,15 @@ import com.api.CoinConverter.repository.TransactionRepository
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class CoinConverterService(val transactionRepository: TransactionRepository,
-                        val coinConverterService: CoinRatesService) {
+                           val coinRatesService: CoinRatesService) {
+
 
     fun postConvertedValue(addCoinConversion: AddCoinConversion): ResponseEntity<Transaction> {
-        val rates = coinConverterService.getConversionRate(addCoinConversion.accessKey, addCoinConversion.initialCoin)
+        val rates = coinRatesService.getConversionRate(addCoinConversion.accessKey, addCoinConversion.initialCoin)
         val conversionRate = rates?.rates?.filterKeys { it == addCoinConversion.finalCoin }
 
         val finalValue = (conversionRate!!.values.firstNotNullOf { it }) * (addCoinConversion.initialValue)
@@ -28,4 +30,14 @@ class CoinConverterService(val transactionRepository: TransactionRepository,
         val transactionResponse = transactionRepository.save(Transaction.toTransaction(trans))
         return ResponseEntity(transactionResponse, HttpStatus.OK)
     }
+
+    fun findAll(): List<Transaction> {
+        return transactionRepository.findAll()
+    }
+
+    fun findById(id: UUID) {
+        transactionRepository.findById(id)
+    }
+
+
 }
