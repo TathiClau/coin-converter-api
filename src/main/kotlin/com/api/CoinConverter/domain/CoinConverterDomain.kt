@@ -16,3 +16,10 @@ data class ResponseConversionRate (val success: Boolean,
                                    val date: Date,
                                    val rates: Map<String, Double>)
 
+data class ResponseCoinConversion (val transactionId: UUID?,
+                                   val userId: UUID,
+                                   val initialCoin: String,
+                                   val initialValue: Double,
+                                   val finalCoin: String,
+                                   val finalValue: Double,
+                                   val conversionRate: Double)
