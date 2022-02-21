@@ -3,11 +3,14 @@ package com.api.CoinConverter.service
 import com.api.CoinConverter.domain.AddCoinConversion
 import com.api.CoinConverter.domain.ResponseCoinConversion
 import com.api.CoinConverter.entity.Transaction
+import com.api.CoinConverter.exception.Erros
+import com.api.CoinConverter.exception.NotFoundException
 import com.api.CoinConverter.repository.TransactionRepository
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import java.util.*
+
 
 @Service
 class CoinConverterService(val transactionRepository: TransactionRepository,
@@ -35,8 +38,8 @@ class CoinConverterService(val transactionRepository: TransactionRepository,
         return transactionRepository.findAll()
     }
 
-    fun findById(id: UUID) {
-        transactionRepository.findById(id)
+    fun findById(id: UUID): Transaction {
+       return transactionRepository.findById(id).orElseThrow{ NotFoundException(Erros.ML101.message.format(id), Erros.ML101.code) }
     }
 
 

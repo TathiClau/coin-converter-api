@@ -38,7 +38,13 @@
 			<groupId>org.jetbrains.kotlin</groupId>
 			<artifactId>kotlin-stdlib-jdk8</artifactId>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/io.mockk/mockk -->
+		<dependency>
+			<groupId>io.mockk</groupId>
+			<artifactId>mockk</artifactId>
+			<version>1.12.2</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -58,6 +64,11 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.8-SNAPSHOT</version>
 			</plugin>
 			<plugin>
 				<groupId>org.jetbrains.kotlin</groupId>
