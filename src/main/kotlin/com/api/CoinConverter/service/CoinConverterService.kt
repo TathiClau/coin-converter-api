@@ -38,7 +38,7 @@ class CoinConverterService(val transactionRepository: TransactionRepository,
         return transactionRepository.findAll()
     }
 
-    fun findById(id: UUID): Transaction {
+    fun findById(id: UUID): Transaction? {
        return transactionRepository.findById(id).orElseThrow{ NotFoundException(Erros.ML101.message.format(id), Erros.ML101.code) }
     }
 

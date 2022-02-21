@@ -3,6 +3,7 @@ package com.api.CoinConverter.helper
 import com.api.CoinConverter.domain.ResponseCoinConversion
 import com.api.CoinConverter.entity.Transaction
 import com.api.CoinConverter.entity.Transaction.Companion.toTransaction
+import java.time.LocalDateTime
 import java.util.*
 
 fun buildTransaction(
@@ -25,3 +26,5 @@ fun buildTransaction(
             )
 
 )
+
+

@@ -11,6 +11,7 @@ import io.mockk.verify
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import java.util.*
 
 
 @ExtendWith(MockKExtension::class)
@@ -40,10 +41,21 @@ class CoinConverterServiceTest {
 
     @Test
     fun `should return transaction when id is informed`() {
-        
+        val id = UUID.randomUUID()
+        val fakeTransaction = Optional.ofNullable(buildTransaction())
+
+        every { transactionRepository.findById(id) } returns fakeTransaction
+        val transaction = coinConverterService.findById(id)
+
+        assertEquals(fakeTransaction, Optional.ofNullable(transaction))
+        verify(exactly = 1) { transactionRepository.findById(id) }
+
     }
 
 
 
 
 }
+
+
+

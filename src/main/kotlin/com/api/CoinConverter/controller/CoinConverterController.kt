@@ -24,7 +24,7 @@ class CoinConverterController (val coinConverterService: CoinConverterService,
 
     //Endpoint that list a transaction by Id
     @GetMapping(value = ["/transactionsById"])
-    fun findById(@RequestParam("id") id: UUID): Transaction {
+    fun findById(@RequestParam("id") id: UUID): Transaction? {
         return coinConverterService.findById(id)
     }
 
