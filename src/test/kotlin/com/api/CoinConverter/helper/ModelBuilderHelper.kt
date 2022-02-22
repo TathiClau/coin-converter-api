@@ -2,6 +2,7 @@ package com.api.CoinConverter.helper
 
 import com.api.CoinConverter.domain.AddCoinConversion
 import com.api.CoinConverter.domain.ResponseCoinConversion
+import com.api.CoinConverter.domain.ResponseConversionRate
 import com.api.CoinConverter.entity.Transaction
 import com.api.CoinConverter.entity.Transaction.Companion.toTransaction
 import org.apache.tomcat.jni.Time
@@ -50,19 +51,12 @@ fun buildResponseConversionRate(
     timestamp: Timestamp = Timestamp(1645490462),
     base: String = "EUR",
     date: Date = Date.from(Instant.now()),
-    rates: Map<String, Double> = mapOf("AED", 4.156529)
+    rates: Map<String, Double> = mapOf("AED" to 4.156529, "AFN" to 103.938929)
 ) = ResponseConversionRate (
     success = success,
     timestamp = timestamp,
     base = base,
     date = date,
-    finalCoin = finalCoin
+    rates = rates
 )
 
-
-
-data class ResponseConversionRate (val success: Boolean,
-                                   val timestamp: Timestamp,
-                                   val base: String,
-                                   val date: Date,
-                                   val rates: Map<String, Double>)

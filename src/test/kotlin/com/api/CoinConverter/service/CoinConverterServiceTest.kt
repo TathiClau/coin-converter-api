@@ -56,13 +56,16 @@ class CoinConverterServiceTest {
     fun `should create transaction`() {
         val fakeTransaction = buildTransaction()
         val fakeAddCoinConvertion = buildAddCoinConversion()
-        val fakeConvertionRate =
+        val fakeConvertionRate = buildResponseConversionRate()
 
         every { transactionRepository.save(fakeTransaction) } returns fakeTransaction
-        every { coinRatesService.getConversionRate(fakeAddCoinConvertion.accessKey, fakeAddCoinConvertion.initialCoin) } returns fakeTransaction
-        coinConverterService.postConvertedValue(fakeAddCoinConvertion)
+        every { coinRatesService.getConversionRate(fakeAddCoinConvertion.accessKey, fakeAddCoinConvertion.initialCoin) } returns fakeConvertionRate
 
+        val addTransaction = coinConverterService.postConvertedValue(fakeAddCoinConvertion)
+
+        assertEquals(fakeTransaction, addTransaction)
         verify(exactly = 1) { transactionRepository.save(fakeTransaction) }
+        verify(exactly = 1) { coinRatesService.getConversionRate(fakeAddCoinConvertion.accessKey, fakeAddCoinConvertion.initialCoin) }
     }
 
 
