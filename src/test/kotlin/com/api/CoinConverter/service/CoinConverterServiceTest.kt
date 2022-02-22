@@ -1,6 +1,6 @@
 package com.api.CoinConverter.service
 
-import com.api.CoinConverter.helper.buildTransaction
+import com.api.CoinConverter.helper.*
 import com.api.CoinConverter.repository.TransactionRepository
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
@@ -52,7 +52,18 @@ class CoinConverterServiceTest {
 
     }
 
+    @Test
+    fun `should create transaction`() {
+        val fakeTransaction = buildTransaction()
+        val fakeAddCoinConvertion = buildAddCoinConversion()
+        val fakeConvertionRate =
 
+        every { transactionRepository.save(fakeTransaction) } returns fakeTransaction
+        every { coinRatesService.getConversionRate(fakeAddCoinConvertion.accessKey, fakeAddCoinConvertion.initialCoin) } returns fakeTransaction
+        coinConverterService.postConvertedValue(fakeAddCoinConvertion)
+
+        verify(exactly = 1) { transactionRepository.save(fakeTransaction) }
+    }
 
 
 }
