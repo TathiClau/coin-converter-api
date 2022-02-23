@@ -28,6 +28,12 @@ class CoinConverterController (val coinConverterService: CoinConverterService,
         return coinConverterService.findById(id)
     }
 
+    //Endpoint that list a transaction by Id
+    @GetMapping(value = ["/test"])
+    fun test(): String {
+        return "Hello Cabrito"
+    }
+
     //Endpoint for post on the database the transaction that has being made and return the coin conversion
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
