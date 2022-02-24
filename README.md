@@ -72,7 +72,7 @@ $ mvn -U clean install -Dmaven.test.skip=true
 $ docker-compose up postgres-dev
 
 # Run the the application on the run button 
-$ java -Dserver.port=$PORT $JAVA_OPTS -jar target/CoinConverter-1.0.0-SNAPSHOT.jar
+$ java -Dserver.port=8089 $JAVA_OPTS -jar target/CoinConverter-1.0.1-SNAPSHOT.jar
 
 # The server will start on port:8089 - access <http://localhost:8089>
 ```
