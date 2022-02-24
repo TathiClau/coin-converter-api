@@ -39,7 +39,7 @@ Before you start, you will need to have the following tools installed on your ma
 - [Docker](https://docs.docker.com/) 
 - [IntelliJ](https://www.jetbrains.com/pt-br/idea/)  *If you are more familiar with another IDE feel free to use your choice. 
 
-## 🎲 Running the API 
+## 🎲 Running the API Locally
 
 ```bash
 # Clone the repo
@@ -56,5 +56,5 @@ $ docker-compose up postgres-dev
 # Execute a aplicação em modo de desenvolvimento
 $ npm run dev:server
 
-# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+# The server will start on port:8089 - access <http://localhost:8089>
 ```
