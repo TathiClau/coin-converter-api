@@ -61,7 +61,7 @@ Before you start, you will need to have the following tools installed on your ma
 
 ```bash
 # Clone the repo
-$ git clone <https://github.com/TathiClau/coin-converter-api>
+$ git clone https://github.com/TathiClau/coin-converter-api
 
 # Open the project in your IDE and wait for it to download the dependencies
 
