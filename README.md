@@ -10,7 +10,7 @@
 
 ## 🛠 Technologies
 
-As seguintes ferramentas foram usadas na construção do projeto:
+The following tools were used in the construction of the project:
 
 - [SpringBoot](https://expo.io/)
 - [Kotlin](https://nodejs.org/en/)
@@ -52,9 +52,6 @@ $ mvn -U clean install -Dmaven.test.skip=true
 
 # Run docker compose
 $ docker-compose up postgres-dev
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
 
 # The server will start on port:8089 - access <http://localhost:8089>
 ```
