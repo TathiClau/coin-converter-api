@@ -31,7 +31,7 @@ The following tools were used in the construction of the project:
 
 ```
 {
-"accessKey": "58bca5e73ac38d04283984de24193e36",
+"accessKey": "<YOUR ACCESS KEY>",
 "userId": "c250010f-ddc5-4cec-abdd-f69d932b8b75",
 "initialCoin": "EUR",
 "initialValue": "10",
